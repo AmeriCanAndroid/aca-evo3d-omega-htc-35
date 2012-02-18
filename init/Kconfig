@@ -126,7 +126,7 @@ config HAVE_KERNEL_LZMA
 config HAVE_KERNEL_LZO
 	bool
 
-config HAVE_KERNEL_XZ=y
+config HAVE_KERNEL_XZ
 	bool
 
 choice
