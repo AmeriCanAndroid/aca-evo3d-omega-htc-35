@@ -8,6 +8,7 @@
 
 #include <linux/decompress/bunzip2.h>
 #include <linux/decompress/unlzma.h>
+#include <linux/decompress/unxz.h>
 #include <linux/decompress/inflate.h>
 #include <linux/decompress/unlzo.h>
 
@@ -26,6 +27,9 @@
 #ifndef CONFIG_DECOMPRESS_LZO
 # define unlzo NULL
 #endif
+#ifndef CONFIG_DECOMPRESS_XZ
+# define unxz NULL
+#endif
 
 static const struct compress_format {
 	unsigned char magic[2];
@@ -37,6 +41,7 @@ static const struct compress_format {
 	{ {0x42, 0x5a}, "bzip2", bunzip2 },
 	{ {0x5d, 0x00}, "lzma", unlzma },
 	{ {0x89, 0x4c}, "lzo", unlzo },
+	{ {0xfd, 0x37}, "xz", unxz },
 	{ {0, 0}, NULL, NULL }
 };
 
