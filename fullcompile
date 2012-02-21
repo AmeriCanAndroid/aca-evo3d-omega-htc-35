@@ -9,7 +9,7 @@ hn=`hostname`
 
 # evaluate warren or cope toolchain location
 if [ $hn = "VBOX-ACA" ];
-    then tcloc="/opt/codesourcery/arm2010950"; #cause warren is special
+    then tcloc="/opt/codesourcery/arm-2010q1"; #cause warren is special
     else tcloc="/root/CodeSourcery/Sourcery_G++_Lite"; #everyone else who installs to default locations
 fi ;
 
@@ -34,8 +34,3 @@ tar cvzf ../"ACAOmegaHTC35KernelEVO3D`date +"%m%d%y%H%M"`".tar.gz ../compiled/
 
 if [ ! -e ../ACAKernels/ ]; then mkdir ../ACAKernels ]; fi;
 mv ../ACAOmegaHTC35KernelEVO3D* ../ACAKernels
-
-
-
-
-
